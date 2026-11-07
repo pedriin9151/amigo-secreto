@@ -2,343 +2,572 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Amigo Secreto 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amigo Secreto 2026 • Lista de Presentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --card-border: #334155;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #ec4899;
-      --tag-bg: #831843;
-      --tag-text: #fbcfe8;
+      --bg: #0b0f17;
+      --card-bg: rgba(22, 27, 34, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --text-main: #f0f6fc;
+      --text-sub: #8b949e;
+      --accent-gold: #e5a93c;
+      --accent-pink: #ec4899;
+      --btn-bg: #21262d;
+      --btn-hover: #30363d;
+      --btn-border: rgba(56, 189, 248, 0.25);
+      --btn-text: #38bdf8;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding: 1.5rem 1rem; min-height: 100vh; }
-    .container { max-width: 760px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 2rem; }
-    header h1 { font-size: 2.1rem; margin-bottom: 0.4rem; color: #fff; }
-    header p { color: var(--text-muted); font-size: 1rem; }
-    .note {
-      background: #1e1b4b;
-      border: 1px solid #4338ca;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(236, 72, 153, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(229, 169, 60, 0.12) 0%, transparent 45%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(229, 169, 60, 0.15);
+      color: var(--accent-gold);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(229, 169, 60, 0.3);
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    p.subtitle {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+    }
+
+    .notice {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
       border-radius: 12px;
       padding: 12px 16px;
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
+      margin-bottom: 28px;
+      font-size: 0.88rem;
       color: #c7d2fe;
-      line-height: 1.4;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    h2.section-title {
-      font-size: 1.35rem;
-      color: var(--accent);
-      margin: 2rem 0 1rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--card-border);
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-pink);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      margin: 28px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
     }
+
     .person-card {
       background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
-    .person-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .person-name {
+      font-size: 1.15rem;
+      font-weight: 700;
       color: #fff;
     }
+
     .pref {
-      font-size: 0.88rem;
-      color: #fb7185;
-      margin-bottom: 0.75rem;
-      background: rgba(244, 63, 94, 0.1);
-      padding: 4px 8px;
-      border-radius: 6px;
       display: inline-block;
+      font-size: 0.84rem;
+      color: #f472b6;
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.25);
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
-    .item {
-      padding: 0.75rem 0;
-      border-top: 1px solid var(--card-border);
+
+    .gift-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    .item:first-of-type { border-top: none; }
-    .item-desc { font-size: 0.95rem; margin-bottom: 0.4rem; line-height: 1.4; }
-    .btn-link {
+
+    .gift-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .gift-info {
+      font-size: 0.92rem;
+      color: #e6edf3;
+      line-height: 1.35;
+      flex: 1;
+    }
+
+    .gift-info strong {
+      color: #fff;
+    }
+
+    .gift-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      background: #0284c7;
-      color: #fff;
+      gap: 4px;
+      padding: 8px 12px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: 1px solid var(--btn-border);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
-      margin-top: 4px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
     }
+
+    .gift-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #fff;
+    }
+
     .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-size: 0.7rem;
+      background: #831843;
+      color: #fbcfe8;
+      font-size: 0.68rem;
+      font-weight: 700;
       padding: 2px 6px;
       border-radius: 4px;
-      margin-left: 6px;
-      font-weight: bold;
+      margin-left: 4px;
+      vertical-align: middle;
     }
-    .missing { color: var(--text-muted); font-style: italic; font-size: 0.85rem; }
-    footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; padding: 1rem 0; }
+
+    .missing {
+      color: var(--text-sub);
+      font-style: italic;
+      font-size: 0.86rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
     <header>
-      <h1>🎁 Amigo Secreto 2026</h1>
-      <p>Lista oficial de sugestões de presentes</p>
+      <div class="badge">🎁 Confraternização Familiar</div>
+      <h1>Amigo Secreto 2026</h1>
+      <p class="subtitle">Lista oficial de sugestões de presentes</p>
     </header>
 
-    <div class="note">
-      🔒 <strong>Página de consulta:</strong> Toque no botão azul de cada sugestão para abrir o link da loja diretamente.
+    <div class="notice">
+      <span>🔒</span>
+      <div><strong>Página de consulta:</strong> Toque no botão de cada item para abrir o link da loja diretamente.</div>
     </div>
 
-    <h2 class="section-title">Lista 1</h2>
+    <!-- ================= LISTA 1 ================= -->
+    <h2 class="section-title">📌 Lista 1</h2>
 
+    <!-- PEDRINHO -->
     <div class="person-card">
-      <h3>👤 PEDRINHO</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Sugestão de presente</strong></div>
-        <a class="btn-link" href="https://shre.ink/Pedriiin" target="_blank" rel="noopener">Abrir link da loja ↗</a>
+      <div class="card-header">
+        <div class="avatar">P</div>
+        <div class="person-name">PEDRINHO</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Calibrador portátil</strong></div>
-        <a class="btn-link" href="https://shre.ink/Pedriin" target="_blank" rel="noopener">Abrir link da loja ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Cooler</strong></div>
-        <a class="btn-link" href="https://meli.la/1nc2VvH#origin=share&sid=share&wid=MLB5266411543&action=copy" target="_blank" rel="noopener">Abrir link da loja ↗</a>
-      </div>
-    </div>
-
-    <div class="person-card">
-      <h3>👤 VANESSA</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Kit com 2 loções CeraVe (473 g cada)</strong></div>
-        <a class="btn-link" href="https://www.belezanaweb.com.br/cerave-para-pele-seca-a-extra-seca-locao-hidratante-facial-e-corporal-sem-perfume-473ml?utm_source=compartilhar&utm_medium=site&utm_campaign=aon" target="_blank" rel="noopener">Ver na Beleza na Web ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Kit Braé com 2 potes de hidratação</strong></div>
-        <a class="btn-link" href="https://www.brae.com.br/kit-duo-fiber-mask---mascara-efeito-teia-500g/p?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAVQ1d9leHRuA2FlbQIxMQBwZG9mAmZkaWQWURRQdGZ1YGVYX55ykJtqO51rLHqXTHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp8uidsuddSgxf0hU24mGhkc2DlqDzBoHrMJsWrovI9wUqvXa6JDYCT8BhT3S_aem_gQGC9dr3XsJI9mfPkaJ4lw" target="_blank" rel="noopener">Ver na Braé ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Dr. Rejuall Advanced PDRN Serum 30 ml</strong></div>
-        <a class="btn-link" href="https://br.shp.ee/QCgW5eDM" target="_blank" rel="noopener">Ver na Shopee ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Sugestão de presente</div>
+          <a class="gift-btn" href="https://shre.ink/Pedriiin" target="_blank" rel="noopener">Abrir link ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Calibrador portátil</div>
+          <a class="gift-btn" href="https://shre.ink/Pedriin" target="_blank" rel="noopener">Abrir link ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Cooler</div>
+          <a class="gift-btn" href="https://meli.la/1nc2VvH#origin=share&sid=share&wid=MLB5266411543&action=copy" target="_blank" rel="noopener">Abrir link ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- VANESSA -->
     <div class="person-card">
-      <h3>👤 VALERIA</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Jaqueta preta</strong> — Tamanho G</div>
-        <a class="btn-link" href="https://m.shein.com/br/LUMIGAL-Black-Color-Vintage-Elegant-Double-Breasted-Long-Sleeve-Women-s-Leather-Jacket-New-Year-Halloween-Night-Out-Going-Out-Fall-p-572799492.html" target="_blank" rel="noopener">Ver na Shein ↗</a>
+      <div class="card-header">
+        <div class="avatar">V</div>
+        <div class="person-name">VANESSA</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Botas</strong></div>
-        <a class="btn-link" href="https://www.mercadolivre.com.br/up/MLBU4223132718?attributes=COLOR:MLBU4223132718,SIZE:MLBU4223132718&matt_tool=38524122&pdp_filters=item_id:MLB7095743532" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Relógio dourado</strong></div>
-        <a class="btn-link" href="https://produto.mercadolivre.com.br/MLB-5204125985?attributes=STRAP_COLOR:T3Vybw==" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Kit com 2 loções CeraVe (473 g cada)</div>
+          <a class="gift-btn" href="https://www.belezanaweb.com.br/cerave-para-pele-seca-a-extra-seca-locao-hidratante-facial-e-corporal-sem-perfume-473ml?utm_source=compartilhar&utm_medium=site&utm_campaign=aon" target="_blank" rel="noopener">Beleza na Web ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Kit Braé com 2 potes de hidratação</div>
+          <a class="gift-btn" href="https://www.brae.com.br/kit-duo-fiber-mask---mascara-efeito-teia-500g/p?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAVQ1d9leHRuA2FlbQIxMQBwZG9mAmZkaWQWURRQdGZ1YGVYX55ykJtqO51rLHqXTHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp8uidsuddSgxf0hU24mGhkc2DlqDzBoHrMJsWrovI9wUqvXa6JDYCT8BhT3S_aem_gQGC9dr3XsJI9mfPkaJ4lw" target="_blank" rel="noopener">Braé ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Dr. Rejuall Advanced PDRN Serum 30 ml</div>
+          <a class="gift-btn" href="https://br.shp.ee/QCgW5eDM" target="_blank" rel="noopener">Shopee ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- VALERIA -->
     <div class="person-card">
-      <h3>👤 CHININHA</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Mochila de hidratação 12 L</strong> — Cor: Preta</div>
-        <a class="btn-link" href="https://www.mercadolivre.com.br/p/MLB62871688?matt_tool=38524122&pdp_filters=item_id:MLB4354643989&ua=EZhEYWb5mi6OLjla9efAAjo2igZY0QLfln8ij5cTunNntgQn#origin=share&sid=share&wid=MLB4354643989&action=whatsapp" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
+      <div class="card-header">
+        <div class="avatar">V</div>
+        <div class="person-name">VALERIA</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Mochila Militar 🎖️</strong></div>
-        <a class="btn-link" href="https://br.shp.ee/DvEsbq4P" target="_blank" rel="noopener">Ver na Shopee ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Bota Advent Coturno Zíper Militar</strong> — Tamanho 41</div>
-        <a class="btn-link" href="https://produto.mercadolivre.com.br/MLB-3953984179?attributes=FABRIC_DESIGN:TGlzbw==,COLOR_SECONDARY_COLOR:UHJldG8=" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Jaqueta preta — Tamanho G</div>
+          <a class="gift-btn" href="https://m.shein.com/br/LUMIGAL-Black-Color-Vintage-Elegant-Double-Breasted-Long-Sleeve-Women-s-Leather-Jacket-New-Year-Halloween-Night-Out-Going-Out-Fall-p-572799492.html" target="_blank" rel="noopener">Shein ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Botas</div>
+          <a class="gift-btn" href="https://www.mercadolivre.com.br/up/MLBU4223132718?attributes=COLOR:MLBU4223132718,SIZE:MLBU4223132718&matt_tool=38524122&pdp_filters=item_id:MLB7095743532" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Relógio dourado</div>
+          <a class="gift-btn" href="https://produto.mercadolivre.com.br/MLB-5204125985?attributes=STRAP_COLOR:T3Vybw==" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- CHININHA -->
     <div class="person-card">
-      <h3>👤 ADÍLSON</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Tenis de corrida</strong> — Tamanho BR 40</div>
-        <a class="btn-link" href="https://a.aliexpress.com/_mLjy4ht" target="_blank" rel="noopener">Ver no AliExpress ↗</a>
+      <div class="card-header">
+        <div class="avatar">C</div>
+        <div class="person-name">CHININHA</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Conjunto 3 peças (Cor 09)</strong> — Tamanho M</div>
-        <a class="btn-link" href="https://a.aliexpress.com/_mPDOiWF" target="_blank" rel="noopener">Ver no AliExpress ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Conjunto masculino</strong> — Tamanho M (Preta ou Marrom)</div>
-        <a class="btn-link" href="https://s.shopee.com.br/5q9SL7z2SS" target="_blank" rel="noopener">Ver na Shopee ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Mochila de hidratação 12 L — Cor: Preta</div>
+          <a class="gift-btn" href="https://www.mercadolivre.com.br/p/MLB62871688?matt_tool=38524122&pdp_filters=item_id:MLB4354643989&ua=EZhEYWb5mi6OLjla9efAAjo2igZY0QLfln8ij5cTunNntgQn#origin=share&sid=share&wid=MLB4354643989&action=whatsapp" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Mochila Militar 🎖️</div>
+          <a class="gift-btn" href="https://br.shp.ee/DvEsbq4P" target="_blank" rel="noopener">Shopee ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Bota Advent Coturno Zíper Militar — Tamanho 41</div>
+          <a class="gift-btn" href="https://produto.mercadolivre.com.br/MLB-3953984179?attributes=FABRIC_DESIGN:TGlzbw==,COLOR_SECONDARY_COLOR:UHJldG8=" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- ADÍLSON -->
     <div class="person-card">
-      <h3>👤 JAQUELINE</h3>
+      <div class="card-header">
+        <div class="avatar">A</div>
+        <div class="person-name">ADÍLSON</div>
+      </div>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Tenis de corrida — Tamanho BR 40</div>
+          <a class="gift-btn" href="https://a.aliexpress.com/_mLjy4ht" target="_blank" rel="noopener">AliExpress ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Conjunto 3 peças (Cor 09) — Tamanho M</div>
+          <a class="gift-btn" href="https://a.aliexpress.com/_mPDOiWF" target="_blank" rel="noopener">AliExpress ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Conjunto masculino — Tamanho M (Preta ou Marrom)</div>
+          <a class="gift-btn" href="https://s.shopee.com.br/5q9SL7z2SS" target="_blank" rel="noopener">Shopee ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAQUELINE -->
+    <div class="person-card">
+      <div class="card-header">
+        <div class="avatar">J</div>
+        <div class="person-name">JAQUELINE</div>
+      </div>
       <span class="pref">💡 Preferência: Conjunto preto ou marrom, tamanho M</span>
-      <div class="item">
-        <div class="item-desc"><strong>1. Conjunto risca de giz</strong></div>
-        <a class="btn-link" href="https://nannymodas.com.br/produtos/conjunto-risca-giz-calca-v4t2w/" target="_blank" rel="noopener">Ver na Nanny Modas ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Conjunto alfaiataria Mirelle</strong></div>
-        <a class="btn-link" href="https://www.lojastz.com.br/prod/3293/conjunto-alfaiataria-mirelle" target="_blank" rel="noopener">Ver na Lojas TZ ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Conjunto alfaiataria Mirella</strong></div>
-        <a class="btn-link" href="https://www.lunii.com.br/conjunto-alfaiataria-mirella" target="_blank" rel="noopener">Ver na Lunii ↗</a>
-      </div>
-    </div>
-
-    <div class="person-card">
-      <h3>👤 LEEK</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Fone de ouvido</strong></div>
-        <a class="btn-link" href="https://a.co/d/05jnDGGC" target="_blank" rel="noopener">Ver na Amazon ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Binóculo</strong></div>
-        <a class="btn-link" href="https://www.mercadolivre.com.br/up/MLBU3996487681?attributes=COLOR:MLBU3996487681&matt_tool=38524122&pdp_filters=item_id:MLB6837062668" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Camiseta do Corinthians Coimbra Retrô Masculina TAMANHO "M"</strong></div>
-        <a class="btn-link" href="https://share.google/ZIOHlamtDHqZs5tBK" target="_blank" rel="noopener">Ver na Centauro ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Conjunto risca de giz</div>
+          <a class="gift-btn" href="https://nannymodas.com.br/produtos/conjunto-risca-giz-calca-v4t2w/" target="_blank" rel="noopener">Nanny Modas ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Conjunto alfaiataria Mirelle</div>
+          <a class="gift-btn" href="https://www.lojastz.com.br/prod/3293/conjunto-alfaiataria-mirelle" target="_blank" rel="noopener">Lojas TZ ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Conjunto alfaiataria Mirella</div>
+          <a class="gift-btn" href="https://www.lunii.com.br/conjunto-alfaiataria-mirella" target="_blank" rel="noopener">Lunii ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- LEEK -->
     <div class="person-card">
-      <h3>👤 PEQUENA</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Kit 10 potes herméticos</strong></div>
-        <a class="btn-link" href="https://br.shp.ee/5VaNCn88" target="_blank" rel="noopener">Ver na Shopee ↗</a>
+      <div class="card-header">
+        <div class="avatar">L</div>
+        <div class="person-name">LEEK</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Escova secadora</strong></div>
-        <a class="btn-link" href="https://www.mercadolivre.com.br/up/MLBU5149553354?matt_tool=38524122&pdp_filters=item_id:MLB7609283298" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Máscara Braé</strong></div>
-        <a class="btn-link" href="https://www.mercadolivre.com.br/p/MLB69254659?matt_tool=38524122&pdp_filters=item_id:MLB6739171914" target="_blank" rel="noopener">Ver no Mercado Livre ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Fone de ouvido</div>
+          <a class="gift-btn" href="https://a.co/d/05jnDGGC" target="_blank" rel="noopener">Amazon ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Binóculo</div>
+          <a class="gift-btn" href="https://www.mercadolivre.com.br/up/MLBU3996487681?attributes=COLOR:MLBU3996487681&matt_tool=38524122&pdp_filters=item_id:MLB6837062668" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Camiseta do Corinthians Coimbra Retrô — Tamanho "M"</div>
+          <a class="gift-btn" href="https://share.google/ZIOHlamtDHqZs5tBK" target="_blank" rel="noopener">Centauro ↗</a>
+        </div>
       </div>
     </div>
 
-    <h2 class="section-title">Lista 2</h2>
-
+    <!-- PEQUENA -->
     <div class="person-card">
-      <h3>👤 VIANE</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Calça Flare em Poliamida Puresense Cinza Asphalt</strong> — Tamanho P</div>
-        <a class="btn-link" href="https://www.hardyn.com.br/produto/2785/HDN2482-calca-flare-em-poliamida-puresense-cinza-asphalt" target="_blank" rel="noopener">Ver na Hardyn ↗</a>
+      <div class="card-header">
+        <div class="avatar">P</div>
+        <div class="person-name">PEQUENA</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Pó facial translúcido Light Medium</strong></div>
-        <a class="btn-link" href="https://www.petrizi.com.br/po-facial/po-facial-translucido-light-medium" target="_blank" rel="noopener">Ver na Petrizi ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>Opcional: Bruma fixadora Fresh Beauty 30 ml Mini</strong> <span class="tag">Opcional</span></div>
-        <a class="btn-link" href="https://www.petrizi.com.br/bruma/bruma-fixadora-fresh-beauty-30ml-mini" target="_blank" rel="noopener">Ver na Petrizi ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Sugestão de presente</strong></div>
-        <a class="btn-link" href="https://br.shp.ee/d8ETns49" target="_blank" rel="noopener">Ver na Shopee ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Kit 10 potes herméticos</div>
+          <a class="gift-btn" href="https://br.shp.ee/5VaNCn88" target="_blank" rel="noopener">Shopee ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Escova secadora</div>
+          <a class="gift-btn" href="https://www.mercadolivre.com.br/up/MLBU5149553354?matt_tool=38524122&pdp_filters=item_id:MLB7609283298" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Máscara Braé</div>
+          <a class="gift-btn" href="https://www.mercadolivre.com.br/p/MLB69254659?matt_tool=38524122&pdp_filters=item_id:MLB6739171914" target="_blank" rel="noopener">Mercado Livre ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- ================= LISTA 2 ================= -->
+    <h2 class="section-title">📌 Lista 2</h2>
+
+    <!-- VIANE -->
     <div class="person-card">
-      <h3>👤 RODRIGO</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Controle GameSir</strong></div>
-        <a class="btn-link" href="https://shop.tiktok.com/br/pdp/1737186891825054990?_t=ZS-9ANWpTYepLp" target="_blank" rel="noopener">Ver no TikTok Shop ↗</a>
+      <div class="card-header">
+        <div class="avatar">V</div>
+        <div class="person-name">VIANE</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Kit 3 tênis</strong> — Tamanho 40</div>
-        <a class="btn-link" href="https://shop.tiktok.com/br/pdp/1736624040497546354?_t=ZS-9ANXBf6USfc" target="_blank" rel="noopener">Ver no TikTok Shop ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Jaqueta micofibra</strong> — Tamanho M</div>
-        <a class="btn-link" href="https://shop.tiktok.com/br/pdp/1736498663049036987?_t=ZS-9ANXrPQe4Sy" target="_blank" rel="noopener">Ver no TikTok Shop ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Calça Flare em Poliamida Puresense Cinza Asphalt — Tamanho P</div>
+          <a class="gift-btn" href="https://www.hardyn.com.br/produto/2785/HDN2482-calca-flare-em-poliamida-puresense-cinza-asphalt" target="_blank" rel="noopener">Hardyn ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Pó facial translúcido Light Medium</div>
+          <a class="gift-btn" href="https://www.petrizi.com.br/po-facial/po-facial-translucido-light-medium" target="_blank" rel="noopener">Petrizi ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>Opcional:</strong> Bruma fixadora Fresh Beauty 30 ml Mini <span class="tag">Opcional</span></div>
+          <a class="gift-btn" href="https://www.petrizi.com.br/bruma/bruma-fixadora-fresh-beauty-30ml-mini" target="_blank" rel="noopener">Petrizi ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Sugestão de presente</div>
+          <a class="gift-btn" href="https://br.shp.ee/d8ETns49" target="_blank" rel="noopener">Shopee ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- RODRIGO -->
     <div class="person-card">
-      <h3>👤 NEIM</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. HeadSet Gamer</strong></div>
-        <a class="btn-link" href="https://vt.tiktok.com/ZS9yDL33NYvLj-dDfud/" target="_blank" rel="noopener">Ver no TikTok ↗</a>
+      <div class="card-header">
+        <div class="avatar">R</div>
+        <div class="person-name">RODRIGO</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Video game Stick</strong></div>
-        <a class="btn-link" href="https://vt.tiktok.com/ZS9yD6g7yo11d-OfH1K/" target="_blank" rel="noopener">Ver no TikTok ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Conjunto Casual</strong> — Tamanho 13Y</div>
-        <a class="btn-link" href="https://onelink.shein.com/58/66ox7qu5hxe3?shc=2_RsSt1iil99E" target="_blank" rel="noopener">Ver na Shein ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Controle GameSir</div>
+          <a class="gift-btn" href="https://shop.tiktok.com/br/pdp/1737186891825054990?_t=ZS-9ANWpTYepLp" target="_blank" rel="noopener">TikTok Shop ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Kit 3 tênis — Tamanho 40</div>
+          <a class="gift-btn" href="https://shop.tiktok.com/br/pdp/1736624040497546354?_t=ZS-9ANXBf6USfc" target="_blank" rel="noopener">TikTok Shop ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Jaqueta micofibra — Tamanho M</div>
+          <a class="gift-btn" href="https://shop.tiktok.com/br/pdp/1736498663049036987?_t=ZS-9ANXrPQe4Sy" target="_blank" rel="noopener">TikTok Shop ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- NEIM -->
     <div class="person-card">
-      <h3>👤 PAI</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Aspirador</strong></div>
-        <a class="btn-link" href="https://s.shopee.com.br/AAHtA1Wtsg" target="_blank" rel="noopener">Ver na Shopee ↗</a>
+      <div class="card-header">
+        <div class="avatar">N</div>
+        <div class="person-name">NEIM</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2.</strong> <span class="missing">Não informado.</span></div>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3.</strong> <span class="missing">Não informado.</span></div>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> HeadSet Gamer</div>
+          <a class="gift-btn" href="https://vt.tiktok.com/ZS9yDL33NYvLj-dDfud/" target="_blank" rel="noopener">TikTok ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Video game Stick</div>
+          <a class="gift-btn" href="https://vt.tiktok.com/ZS9yD6g7yo11d-OfH1K/" target="_blank" rel="noopener">TikTok ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Conjunto Casual — Tamanho 13Y</div>
+          <a class="gift-btn" href="https://onelink.shein.com/58/66ox7qu5hxe3?shc=2_RsSt1iil99E" target="_blank" rel="noopener">Shein ↗</a>
+        </div>
       </div>
     </div>
 
+    <!-- PAI -->
     <div class="person-card">
-      <h3>👤 ZÉ</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Calça Cargo Casual</strong> — Tamanho G</div>
-        <a class="btn-link" href="https://m.shein.com/br/ManfinityHommeCal%C3%A7aCasualMasculinadeCorS%C3%B3lidaLisa,AdequadaparaoVer%C3%A3o,Cal%C3%A7aCargo,Outono-p-58873117-cat-1978.html" target="_blank" rel="noopener">Ver na Shein ↗</a>
+      <div class="card-header">
+        <div class="avatar">P</div>
+        <div class="person-name">PAI</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Kit 3 Peças Camisas Polo</strong> — Tamanho G</div>
-        <a class="btn-link" href="https://m.shein.com/br/3Pe%C3%A7asCamisasPoloMasculinasdeMangaCurta,SecagemR%C3%A1pida,CasualEmpresarialAoArLivre,CamisetasRespir%C3%A1veis-p-365888103-cat-1981.html" target="_blank" rel="noopener">Ver na Shein ↗</a>
-      </div>
-      <div class="item">
-        <div class="item-desc"><strong>3.</strong> <span class="missing">Não informado.</span></div>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Aspirador</div>
+          <a class="gift-btn" href="https://s.shopee.com.br/AAHtA1Wtsg" target="_blank" rel="noopener">Shopee ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> <span class="missing">Não informado.</span></div>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> <span class="missing">Não informado.</span></div>
+        </div>
       </div>
     </div>
 
+    <!-- ZÉ -->
     <div class="person-card">
-      <h3>👤 CLÉCIA</h3>
-      <div class="item">
-        <div class="item-desc"><strong>1. Conjunto</strong> — Tamanho M</div>
-        <a class="btn-link" href="https://onelink.shein.com/58/66i9su2vta9n?shc=2_RNyUcKaW5Id" target="_blank" rel="noopener">Ver na Shein ↗</a>
+      <div class="card-header">
+        <div class="avatar">Z</div>
+        <div class="person-name">ZÉ</div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>2. Calça</strong> — Tamanho G</div>
-        <a class="btn-link" href="https://onelink.shein.com/58/66i8p3lgmjin?shc=2_RNyfot9iYZe" target="_blank" rel="noopener">Ver na Shein ↗</a>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Calça Cargo Casual — Tamanho G</div>
+          <a class="gift-btn" href="https://m.shein.com/br/ManfinityHommeCal%C3%A7aCasualMasculinadeCorS%C3%B3lidaLisa,AdequadaparaoVer%C3%A3o,Cal%C3%A7aCargo,Outono-p-58873117-cat-1978.html" target="_blank" rel="noopener">Shein ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Kit 3 Peças Camisas Polo — Tamanho G</div>
+          <a class="gift-btn" href="https://m.shein.com/br/3Pe%C3%A7asCamisasPoloMasculinasdeMangaCurta,SecagemR%C3%A1pida,CasualEmpresarialAoArLivre,CamisetasRespir%C3%A1veis-p-365888103-cat-1981.html" target="_blank" rel="noopener">Shein ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> <span class="missing">Não informado.</span></div>
+        </div>
       </div>
-      <div class="item">
-        <div class="item-desc"><strong>3. Relógio Inteligente S11 Série 8</strong></div>
-        <a class="btn-link" href="https://m.magazineluiza.com.br/relogio-inteligente-s11-serie-8-para-ios-androiud-com-2-pulseiras-siri-nfc-smartw/p/dcaaf2bb04/te/smtw/" target="_blank" rel="noopener">Ver no Magazine Luiza ↗</a>
+    </div>
+
+    <!-- CLÉCIA -->
+    <div class="person-card">
+      <div class="card-header">
+        <div class="avatar">C</div>
+        <div class="person-name">CLÉCIA</div>
+      </div>
+      <div class="gift-list">
+        <div class="gift-item">
+          <div class="gift-info"><strong>1.</strong> Conjunto — Tamanho M</div>
+          <a class="gift-btn" href="https://onelink.shein.com/58/66i9su2vta9n?shc=2_RNyUcKaW5Id" target="_blank" rel="noopener">Shein ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>2.</strong> Calça — Tamanho G</div>
+          <a class="gift-btn" href="https://onelink.shein.com/58/66i8p3lgmjin?shc=2_RNyfot9iYZe" target="_blank" rel="noopener">Shein ↗</a>
+        </div>
+        <div class="gift-item">
+          <div class="gift-info"><strong>3.</strong> Relógio Inteligente S11 Série 8</div>
+          <a class="gift-btn" href="https://m.magazineluiza.com.br/relogio-inteligente-s11-serie-8-para-ios-androiud-com-2-pulseiras-siri-nfc-smartw/p/dcaaf2bb04/te/smtw/" target="_blank" rel="noopener">Magazine Luiza ↗</a>
+        </div>
       </div>
     </div>
 
     <footer>
-      Amigo Secreto 2026 • Lista de presentes
+      Amigo Secreto 2026 • Lista de presentes privada
     </footer>
   </div>
+
 </body>
 </html>
-
